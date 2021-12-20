@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  bpd-node:
+    build: ./node
+    command: /bin/bash -c "cd /app/API-BPD && npm i && cp /app/env/.env
+      /app/API-BPD/.env && nodemon src/index.js"
+    stdin_open: true
+    tty: true
+    ports:
+      - "3355:3355"
+    volumes:
+      - ./API-BPD:/app/API-BPD
+      - ./env:/app/env
+
+  bpd-nginx:
+    build: ./nginx
+    tty: true
+    ports:
+      - "3356:80"
+    volumes:
+      - ./best-parts-deals:/var/www/html
