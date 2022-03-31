@@ -15,4 +15,4 @@ cd best-parts-deals
 git checkout master
 cd ..
 
-docker-compose up -d
+docker-compose up -dp -d
