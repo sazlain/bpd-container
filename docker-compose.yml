@@ -15,11 +15,6 @@ services:
     tty: true
     ports:
       - "3356:80"
-      - "3355:3355"
-      - "80:80"
-      - "443:443"
     volumes:
       - ./best-parts-deals:/var/www/html
       - ./nginx/sites-available:/etc/nginx/sites-available
-    depends_on:
-      - backend

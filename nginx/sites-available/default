@@ -72,16 +72,6 @@ server {
         #}
 }
 
-server {
-    listen 3355;
-    server_name backend.io;
-
-    location / {
-        proxy_set_header   X-Forwarded-For $remote_addr;
-        proxy_set_header   Host $http_host;
-        proxy_pass         http://backend:3355;
-    }
-}
 
 
 # Virtual Host configuration for example.com
